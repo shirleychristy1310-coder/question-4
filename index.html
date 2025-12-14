@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bug Hunt – Level 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .hint {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #d7ffd7;
+            border-left: 5px solid #2c8a2c;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        input, button {
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Cryptography Challenge</h2>
+
+<p>A message is encrypted using a substitution technique.</p>
+
+<p><b>Ciphertext:</b></p>
+
+<pre>
+wzgz rh hvxfiv
+</pre>
+
+<p><b>Decode the message and type the plaintext:</b></p>
+
+<input type="text" id="answer" placeholder="Enter your answer here">
+<button onclick="checkAnswer()">Submit</button>
+
+<p id="errorMsg" class="error"></p>
+
+<div id="hint" class="hint">
+    <h3>Correct!</h3>
+    <p>Your next hint is:</p>
+    <h2>A long red tin, your words travel farther than you think!!</h2>
+</div>
+
+<script>
+function checkAnswer() {
+    let ans = document.getElementById("answer").value.toLowerCase().trim();
+    let errorMsg = document.getElementById("errorMsg");
+    let hint = document.getElementById("hint");
+
+    let correct = (ans === "data is secure");
+
+    if (correct) {
+        errorMsg.textContent = "";
+        hint.style.display = "block";
+    } else {
+        hint.style.display = "none";
+        errorMsg.textContent = "Incorrect. Try again.";
+    }
+}
+</script>
+
+</body>
+</html>
